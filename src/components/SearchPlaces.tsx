@@ -8,10 +8,7 @@ import { Places } from "../components/Places"
 export const SearchPlaces = () => {
 	const [places, setPlaces] = useState<PlaceResult[]>([])
 
-	const [loc, setLoc] = useState<google.maps.LatLngLiteral | null>({
-		lat: 1,
-		lng: 1,
-	})
+	const [loc, setLoc] = useState<google.maps.LatLngLiteral | null>(null)
 	const [includedTypes, setIncludedTypes] = useState<string[]>([])
 
 	const setPosition = () => {
@@ -76,14 +73,16 @@ export const SearchPlaces = () => {
 	}
 
 	return (
-		<main class="flex flex-col justify-center w-full py-5 px-3">
+		<main class="flex flex-col justify-center w-full py-5 px-3 m-auto max-w-[768px]">
 			<div class="flex flex-col items-center gap-3">
-				{loc && (
-					<div class="mt-3 flex gap-2 justify-center align-middle">
-						<span>Latitude: {loc.lat}</span>
-						<span>Longitude: {loc.lng}</span>
-					</div>
-				)}
+				<div class="mt-3 flex gap-2 justify-center align-middle min-h-8">
+					{loc && (
+						<>
+							<span>Latitude: {loc.lat}</span>
+							<span>Longitude: {loc.lng}</span>
+						</>
+					)}
+				</div>
 
 				<form
 					class="flex flex-col gap-3 items-center w-full"
