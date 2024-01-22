@@ -17,6 +17,13 @@ const { title } = Astro.props
 		<title>{title}</title>
 	</head>
 	<body>
+		<a href="/">
+			<h1
+				class="text-center mt-10 mb-5 text-5xl font-bold [letter-spacing:.3rem] uppercase text-yellow-200"
+			>
+				Neriroads
+			</h1>
+		</a>
 		<slot />
 	</body>
 </html>
@@ -28,5 +35,6 @@ const { title } = Astro.props
 		font-family: system-ui, sans-serif;
 		background: #13151a;
 		background-size: 224px;
+		color: var(--primary-color);
 	}
 </style>
